@@ -1,0 +1,5 @@
+C:\Users\smutn\Documents\Projs\MapDisplay\MapDisplay.exe
+C:\Users\smutn\Documents\Projs\MapDisplay\MapDisplay.dll
+C:\Users\smutn\Documents\Projs\MapDisplay\MapDisplay.deps.json
+C:\Users\smutn\Documents\Projs\MapDisplay\MapDisplay.runtimeconfig.json
+C:\Users\smutn\Documents\Projs\MapDisplay\MapDisplay.pdb
