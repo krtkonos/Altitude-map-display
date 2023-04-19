@@ -21,6 +21,9 @@ namespace MapDisplay
 	public partial class MainWindow : Window
 	{
 		private Heightmap _heightmap;
+		private float crossSize = 5f;
+		private float dotSize = 10f;
+		private float zoom = 10f;
 		private enum CircleState
 		{
 			Center,
@@ -69,9 +72,9 @@ namespace MapDisplay
 			{
 				zoomFactor = 0.1 / currentZoom;
 			}
-			else if (currentZoom * zoomFactor > 10)
+			else if (currentZoom * zoomFactor > zoom)
 			{
-				zoomFactor = 10 / currentZoom;
+				zoomFactor = zoom / currentZoom;
 			}
 
 			scrollViewer.LayoutTransform = new ScaleTransform(currentZoom * zoomFactor, currentZoom * zoomFactor);
@@ -109,8 +112,10 @@ namespace MapDisplay
 
 		private void DrawCross(Point position, SolidColorBrush color)
 		{
-			Line line1 = new Line { X1 = position.X - 5, Y1 = position.Y - 5, X2 = position.X + 5, Y2 = position.Y + 5, Stroke = color, StrokeThickness = 1 };
-			Line line2 = new Line { X1 = position.X - 5, Y1 = position.Y + 5, X2 = position.X + 5, Y2 = position.Y - 5, Stroke = color, StrokeThickness = 1 };
+			Line line1 = new Line { X1 = position.X - crossSize, Y1 = position.Y - crossSize, 
+				X2 = position.X + crossSize, Y2 = position.Y + crossSize, Stroke = color, StrokeThickness = 1 };
+			Line line2 = new Line { X1 = position.X - crossSize, Y1 = position.Y + crossSize, 
+				X2 = position.X + crossSize, Y2 = position.Y - crossSize, Stroke = color, StrokeThickness = 1 };
 
 			HeightmapCanvas.Children.Add(line1);
 			HeightmapCanvas.Children.Add(line2);
@@ -203,7 +208,7 @@ namespace MapDisplay
 				HeightmapCanvas.Children.Remove(_orangeDot);
 			}
 
-			_orangeDot = new Ellipse { Width = 10, Height = 10, Fill = color };
+			_orangeDot = new Ellipse { Width = dotSize, Height = dotSize, Fill = color };
 
 			Canvas.SetLeft(_orangeDot, position.X - _orangeDot.Width / 2);
 			Canvas.SetTop(_orangeDot, position.Y - _orangeDot.Height / 2);
