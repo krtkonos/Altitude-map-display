@@ -86,7 +86,7 @@ namespace MapDisplay
 
 			if (_circleState == CircleState.Center)
 			{
-				ClearCanvasElements(); // Clear old elements before drawing the new red cross
+				ClearCanvasElements(); 
 
 				_circleCenter = clickPosition;
 				_circleState = CircleState.Edge;
@@ -142,7 +142,7 @@ namespace MapDisplay
 			List<PointHeightData> pointsWithinCircle = new List<PointHeightData>();
 
 			int centerX = (int)(center.X / HeightmapImage.ActualWidth * _heightmap.Ncols);
-			int centerY = (int)(center.Y / HeightmapImage.ActualHeight * _heightmap.Nrows); // Change this line
+			int centerY = (int)(center.Y / HeightmapImage.ActualHeight * _heightmap.Nrows); 
 			int maxRadius = (int)Math.Ceiling(radius / HeightmapImage.ActualWidth * _heightmap.Ncols);
 
 			for (int i = -maxRadius; i <= maxRadius; i++)
@@ -195,7 +195,7 @@ namespace MapDisplay
 
 				Point canvasPoint = new Point(
 					x * HeightmapImage.RenderSize.Width / _heightmap.Ncols,
-					y * HeightmapImage.RenderSize.Height / _heightmap.Nrows); // Change this line
+					y * HeightmapImage.RenderSize.Height / _heightmap.Nrows);
 
 				DrawDot(canvasPoint, Brushes.Orange);
 			}
